@@ -51,7 +51,9 @@ function Header() {
       <img className="h-12 w-40 " src={logo} alt="Logo-image" />
       <div className="flex gap-5 ">
         {navItems.map((i) => (
-          <NavLink className={"text-base font-medium leading-5 "} to={i.value}>
+          <NavLink className={({ isActive }) =>
+            `text-base font-medium leading-5  ${isActive ? "underline " : ""}`}
+           to={i.value}>
             {i.name}
           </NavLink>
         ))}
@@ -77,3 +79,5 @@ function Header() {
 }
 
 export default Header;
+
+
