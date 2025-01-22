@@ -26,7 +26,7 @@ function ThreeIcons() {
       {threeIcons.map((i) => (
         <>
           <div className="flex flex-col items-center space-y-2 ">
-            <img className=" " src={i.image} />
+            <img  src={i.image} alt="img-icons"/>
           
               <div className="text-sm leading-5 font-semibold text-center text-[#373737]">{i.title}</div>
               <div className="text-sm leading-5 font-normal text-center text-[#898989]">{i.subtitle}</div>

@@ -3,9 +3,14 @@ import logo from "../../assets/images/logo.png";
 import vector from "../../assets/images/Vector (5).png";
 import profile from "../../assets/images/profile-icon.png";
 import search from "../../assets/images/search icon.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
-function Header() {
+function Header({ setShowSearchbar }) {
+  const navigate = useNavigate();
+  const handleSearchClick = () => {
+    setShowSearchbar(true);
+    navigate("/collection");
+  };
   let navItems = [
     {
       id: 1,
@@ -32,8 +37,9 @@ function Header() {
   const headerIcons = [
     {
       src: search,
-      value: "/search",
+      value: "/collection",
       alt: "search-icon",
+      onClick: handleSearchClick,
     },
     {
       src: profile,
@@ -51,9 +57,12 @@ function Header() {
       <img className="h-12 w-40 " src={logo} alt="Logo-image" />
       <div className="flex gap-5 ">
         {navItems.map((i) => (
-          <NavLink className={({ isActive }) =>
-            `text-base font-medium leading-5  ${isActive ? "underline " : ""}`}
-           to={i.value}>
+          <NavLink
+            className={({ isActive }) =>
+              `text-base font-medium leading-5  ${isActive ? "underline " : ""}`
+            }
+            to={i.value}
+          >
             {i.name}
           </NavLink>
         ))}
@@ -61,7 +70,12 @@ function Header() {
       <div className="flex gap-8">
         {headerIcons.map((item) => (
           <NavLink to={item.value}>
-            <img className="h-6 w-6" src={item.src} alt={item.alt} />
+            <img
+              className="h-6 w-6"
+              src={item.src}
+              alt={item.alt}
+              onClick={item.onClick}
+            />
           </NavLink>
         ))}
 
@@ -79,5 +93,3 @@ function Header() {
 }
 
 export default Header;
-
-

@@ -22,7 +22,7 @@ function Contact() {
       <div className="flex  items-center justify-center gap-12 ">
         <div>
           <img
-            className="h-[396px] w-[386px] mt-11 ml-32 mb-32"
+            className="h-[496px] w-[486px] mt-11 ml-32 "
             src={contactImg}
             alt="contact-img"
           />
