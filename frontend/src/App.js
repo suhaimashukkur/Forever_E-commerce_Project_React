@@ -9,9 +9,14 @@ import Collection from "./Pages/Collection";
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import SignupLogin from "./Pages/SignupLogin";
-import SearchBar from "./Pages/SearchBar";
+
 import Cart from "./Pages/Cart";
 import { useState } from "react";
+import Delivery from "./Pages/Delivery";
+import MyOrders from "./Pages/MyOrders";
+import AdminLogin from "./Pages/Admin/AdminLogin";
+import AdminHome from "./Pages/Admin/AdminHome";
+import Product from "./Pages/Product";
 
 function App() {
   const [showSearchbar, setShowSearchbar] = useState(false);
@@ -31,9 +36,16 @@ function App() {
         ></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
-        <Route path="/profile" element={<SignupLogin />}></Route>
+        <Route path="/admin-login" element={<AdminLogin />}></Route>
+        <Route path="/login" element={<SignupLogin />}></Route>
+        <Route path='/product/:id' element={<Product />}></Route>
     
         <Route path="/cart" element={<Cart />}></Route>
+        <Route path="/place-order" element={<Delivery />}></Route>
+        <Route path="/orders" element={<MyOrders />}></Route>
+        <Route path="/admin-home" element={<AdminHome />}></Route>
+       
+        
       </Routes>
 
       <Footer />

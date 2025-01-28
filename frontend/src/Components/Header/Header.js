@@ -11,6 +11,7 @@ function Header({ setShowSearchbar }) {
     setShowSearchbar(true);
     navigate("/collection");
   };
+
   let navItems = [
     {
       id: 1,
@@ -43,8 +44,8 @@ function Header({ setShowSearchbar }) {
     },
     {
       src: profile,
-      value: "/profile",
-      alt: "profile-icon",
+      value: "/login",
+      alt: "login-icon",
     },
     {
       src: vector,
@@ -53,9 +54,9 @@ function Header({ setShowSearchbar }) {
     },
   ];
   return (
-    <div className="flex items-center justify-between ml-32 mr-32 mt-7 ">
+    <div className="flex items-center justify-between sm:mr-12 sm:ml-12 lg:ml-32 lg:mr-32 mt-7   ">
       <img className="h-12 w-40 " src={logo} alt="Logo-image" />
-      <div className="flex gap-5 ">
+      <div className="flex gap-5 xs:">
         {navItems.map((i) => (
           <NavLink
             className={({ isActive }) =>
@@ -67,6 +68,7 @@ function Header({ setShowSearchbar }) {
           </NavLink>
         ))}
       </div>
+     
       <div className="flex gap-8">
         {headerIcons.map((item) => (
           <NavLink to={item.value}>

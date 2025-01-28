@@ -22,7 +22,7 @@ function ThreeIcons() {
     },
   ];
   return (
-    <div className="flex justify-between items-center ml-40 mt-32 mr-40  ">
+    <div className="flex justify-between items-center ml-48 mt-32 mr-48  ">
       {threeIcons.map((i) => (
         <>
           <div className="flex flex-col items-center space-y-2 ">

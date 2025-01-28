@@ -11,100 +11,64 @@ import gridimg8 from "../assets/images/Rectangle 3619.png";
 import gridimg9 from "../assets/images/Rectangle 3634.png";
 import gridimg10 from "../assets/images/Rectangle 3635.png";
 import search from "../assets/images/search icon.png";
+import { Link } from "react-router-dom";
+
 function Collection({ showSearchbar, setShowSearchbar }) {
   let AllCollections = [
-    {
-      image: gridimg1,
-      title: "Women Round Neck Cotton Top",
-      subtitle: "$149",
-    },
-    {
-      image: gridimg2,
-      title: "Women Round Neck Cotton Top",
-      subtitle: "$149",
-    },
-    {
-      image: gridimg3,
-      title: "Women Round Neck Cotton Top",
-      subtitle: "$149",
-    },
-    {
-      image: gridimg4,
-      title: "Women Round Neck Cotton Top",
-      subtitle: "$149",
-    },
-    {
-      image: gridimg5,
-      title: "Women Round Neck Cotton Top",
-      subtitle: "$149",
-    },
-    {
-      image: gridimg6,
-      title: "Women Round Neck Cotton Top",
-      subtitle: "$149",
-    },
-    {
-      image: gridimg7,
-      title: "Women Round Neck Cotton Top",
-      subtitle: "$149",
-    },
-    {
-      image: gridimg8,
-      title: "Women Round Neck Cotton Top",
-      subtitle: "$149",
-    },
-    {
-      image: gridimg9,
-      title: "Women Round Neck Cotton Top",
-      subtitle: "$149",
-    },
-    {
-      image: gridimg10,
-      title: "Women Round Neck Cotton Top",
-      subtitle: "$149",
-    },
-    {
-      image: gridimg9,
-      title: "Women Round Neck Cotton Top",
-      subtitle: "$149",
-    },
-    {
-      image: gridimg10,
-      title: "Women Round Neck Cotton Top",
-      subtitle: "$149",
-    },
+    { id:1,image: gridimg1, title: "Women Round Neck Cotton Top", subtitle: "$149" },
+    { id:2, image: gridimg2, title: "Women Round Neck Cotton Top", subtitle: "$149" },
+    { id:3, image: gridimg3, title: "Women Round Neck Cotton Top", subtitle: "$149" },
+    { id:4, image: gridimg4, title: "Women Round Neck Cotton Top", subtitle: "$149" },
+    { id:5, image: gridimg5, title: "Women Round Neck Cotton Top", subtitle: "$149" },
+    { id:6, image: gridimg6, title: "Women Round Neck Cotton Top", subtitle: "$149" },
+    { id:7, image: gridimg7, title: "Women Round Neck Cotton Top", subtitle: "$149" },
+    { id:8, image: gridimg8, title: "Women Round Neck Cotton Top", subtitle: "$149" },
+    { id:9, image: gridimg9, title: "Women Round Neck Cotton Top", subtitle: "$149" },
+    { id:10, image: gridimg10, title: "Women Round Neck Cotton Top", subtitle: "$149" },
+    { id:11, image: gridimg9, title: "Women Round Neck Cotton Top", subtitle: "$149" },
+    { id:12, image: gridimg10, title: "Women Round Neck Cotton Top", subtitle: "$149" },
   ];
 
   return (
     <>
+    <div className="border-solid  border-[0.5px] ml-32 mr-32 mt-4"></div>
       {showSearchbar && (
-        <div>
-          <div className="border-t border-[#ADADAD] ml-32 mr-32 mt-6 "></div>
-          <div className="mt-6  flex justify-center items-center relative">
-            <input
-              className="h-12 w-full ml-96 mr-96 border-solid border-2 border-[#707070] rounded-2xl placeholder:text-lg placeholder:pl-4 placeholder:text-[#707070]"
-              type="text"
-              placeholder="Search"
-            />
-            <img
-              className="absolute pl-[500px] "
-              src={search}
-              alt="search-icon"
-            />
+        <div className="bg-gray-100 ml-32 mr-32">
+          <div className="border-t border-[#ADADAD] mt-6 "></div>
+          <div className="mt-6 flex justify-center items-center relative">
+            {/* Search Box and Icon Container */}
+            <div className="relative flex items-center w-full mr-40 ml-40">
+              {/* Search Input */}
+              <input
+                className="h-12 w-full border-none pl-5 border-2 border-[#707070] rounded-3xl placeholder:text-lg  placeholder:text-[#707070] border:none "
+                type="text"
+                placeholder="Search"
+              />
+
+              {/* Search Icon */}
+              <img
+                className="absolute right-8 h-6 w-6 cursor-pointer"
+                src={search}
+                alt="search-icon"
+              />
+            </div>
+
+            {/* Close Button placed outside, but near the search box */}
             <div
-              className="absolute pl-[650px] cursor-pointer"
+              className="cursor-pointer absolute text-xl font-semibold h-6 w-6 flex justify-center items-center left-[950px]"
               onClick={() => setShowSearchbar(false)}
             >
               X
             </div>
           </div>
+          {/* Gray Border between the search section and other content */}
+          <div className="border-t border-[#D3D3D3] mt-6 "></div>
         </div>
       )}
 
       <section>
-        <div className="border-t border-[#ADADAD] ml-32 mr-32 mt-6 "></div>
         <div className="flex">
-          <div className=" flex flex-col">
+          <div className="flex flex-col">
             <div className="ml-32 text-2xl leading-7 text-[#343434] mt-28 ">
               Filters
             </div>
@@ -179,19 +143,28 @@ function Collection({ showSearchbar, setShowSearchbar }) {
                   alt="img-border"
                 />
               </div>
-              <div className="border-solid border-2 w-[232px] h-11 bg-[#C8C8C8] mt-20 ml-[270px] "></div>
+              <div className="border-solid border-2 w-[180px] h-11 mt-20 ml-[320px] pl-3 pt-2 border-black ">
+                <select className="font-normal text-lg text-center border-none outline-none">
+                  <option value="low">Sort by: Relevent </option>
+                  <option value="high">High</option>
+                </select>
+              </div>
             </div>
             <div className="grid grid-cols-4 gap-7 mt-8 ml-10 mr-32">
               {AllCollections.map((i) => (
                 <>
                   <div>
+                    <div key={i.id}>
+                    <Link to={`/product/${i.id}`}>
                     <img className="" src={i.image} alt="grid-img" />
+                    </Link>
 
                     <div className="font-medium leading-4 text-[#494949] text-xs mt-5 mb-2">
                       {i.title}
                     </div>
                     <div className="font-medium leading-4 text-[#494949] text-xs ">
                       {i.subtitle}
+                    </div>
                     </div>
                   </div>
                 </>

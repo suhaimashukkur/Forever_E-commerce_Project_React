@@ -8,6 +8,7 @@ function SignupLogin() {
   };
   return (
     <>
+    <div className="border-solid  border-[0.5px] ml-32 mr-32 mt-4"></div>
       <div className="flex justify-center items-center">
         <h2 className="text-center text-4xl leading-8 font-medium text-[#414141] mt-36">
           {isLogin ? "Login" : "Sign Up"}
@@ -24,20 +25,28 @@ function SignupLogin() {
           {isLogin ? (
             ""
           ) : (
-            <label className="w-96 h-12 border-solid border-2 border-[#707070] pl-5 pt-2">
-              <input type="string" name="name" placeholder="Name" required />
-            </label>
-          )}
-
-          <label className="w-96 h-12 border-solid border-2 border-[#707070] pl-5 pt-2">
-            <input type="email" name="email" placeholder="Email" required />
-          </label>
-          <label className="w-96 h-12 border-solid border-2 border-[#707070] pl-5 pt-2">
+            <label className="w-96">
             <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              required
+              className="w-full h-12 border-2 border-[#707070] pl-3 rounded-md focus:outline-none focus:ring focus:ring-gray-400"
+            />
+          </label>
+          )
+          }
+
+          <label className="w-96   ">
+            <input type="email" name="email" placeholder="Email" required className="pl-3  w-full h-12 border-solid border-2 border-[#707070]  rounded-md focus:outline-none focus:ring  focus:ring-gray-400" />
+          </label>
+          <label className="w-96  ">
+            <input 
               type="password"
               name="password"
               placeholder="Password"
               required
+              className="w-full h-12 border-solid border-2 border-[#707070]  rounded-md focus:outline-none focus:ring  focus:ring-gray-400 pl-3  "
             />
           </label>
           <div className="flex justify-between">

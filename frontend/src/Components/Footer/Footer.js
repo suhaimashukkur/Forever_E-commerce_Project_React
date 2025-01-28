@@ -12,7 +12,7 @@ function Footer() {
         </div>
       </div>
       <div className="mt-72 flex flex-col space-y-3">
-        <div className="text-xl font-semibold leading-7 text-[#5A5A5A] mb-4">
+        <div className="sm:hidden lg:block text-xl font-semibold leading-7 text-[#5A5A5A] mb-4">
           COMPANY
         </div>
         <div className="font-normal text-lg leading-7 text-[#595959]">Home</div>
