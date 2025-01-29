@@ -1,14 +1,11 @@
 import React from "react";
 import border from "../assets/images/Rectangle 3147.png";
 import gridimg1 from "../assets/images/Rectangle 3608.png";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import '../Components/HomeBanner/HomeBanner.css'
 
 function Cart() {
-  const navigate = useNavigate();
-  const handleProceedToCheckout=() =>{
-navigate('/place-order')
-  }
+  
   return (
     <section>
       <div className="border-solid  border-length ml-32 mr-32  mt-6"></div>
@@ -63,8 +60,10 @@ navigate('/place-order')
         <div className="border-solid border-length ml-32 mr-32"></div>
         <div className="ml-32 font-semibold text-xl">Total <div className="float-right mr-32">$0.00</div></div>
 
-       
-<button style={{marginTop:"30px"}} className="border-solid border-2 h-12 w-60  bg-black text-white button-left-margin " onClick={handleProceedToCheckout} >PROCEED TO CHECKOUT</button>
+ <Link to={'/place-order'}>      
+
+<button style={{marginTop:"30px"}} className="border-solid border-2 h-12 w-60  bg-black text-white button-left-margin "  >PROCEED TO CHECKOUT</button>
+      </Link>
       </div>
       
     </section>

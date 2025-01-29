@@ -12,25 +12,25 @@ import gridimg10 from "../assets/images/Rectangle 3635.png";
 
 export const shopContext = React.createContext();
 const data  = [
-  { id:1,image: gridimg1, title: "Women Round Neck Cotton Top", subtitle: "$149" },
-  { id:2, image: gridimg2, title: "Women Round Neck Cotton Top", subtitle: "$149" },
-  { id:3, image: gridimg3, title: "Women Round Neck Cotton Top", subtitle: "$149" },
-  { id:4, image: gridimg4, title: "Women Round Neck Cotton Top", subtitle: "$149" },
-  { id:5, image: gridimg5, title: "Women Round Neck Cotton Top", subtitle: "$149" },
-  { id:6, image: gridimg6, title: "Women Round Neck Cotton Top", subtitle: "$149" },
-  { id:7, image: gridimg7, title: "Women Round Neck Cotton Top", subtitle: "$149" },
-  { id:8, image: gridimg8, title: "Women Round Neck Cotton Top", subtitle: "$149" },
-  { id:9, image: gridimg9, title: "Women Round Neck Cotton Top", subtitle: "$149" },
-  { id:10, image: gridimg10, title: "Women Round Neck Cotton Top", subtitle: "$149" },
-  { id:11, image: gridimg9, title: "Women Round Neck Cotton Top", subtitle: "$149" },
-  { id:12, image: gridimg10, title: "Women Round Neck Cotton Top", subtitle: "$149" },
+  { id:"1",image: gridimg1, title: "Women Round Neck Cotton Top", subtitle: "$149" },
+  { id:"2", image: gridimg2, title: "Women Round Neck Cotton Top", subtitle: "$149" },
+  { id:"3", image: gridimg3, title: "Women Round Neck Cotton Top", subtitle: "$600" },
+  { id:"4", image: gridimg4, title: "Women Round Neck Cotton Top", subtitle: "$149" },
+  { id:"5", image: gridimg5, title: "Men Round Neck Cotton Top", subtitle: "$200" },
+  { id:"6", image: gridimg6, title: "Kids Round Neck Cotton Top", subtitle: "$14" },
+  { id:"7", image: gridimg7, title: "Women Round Neck Cotton Top", subtitle: "$149" },
+  { id:"8", image: gridimg8, title: "Women Round Neck Cotton Top", subtitle: "$149" },
+  { id:"9", image: gridimg9, title: "Women Round Neck Cotton Top", subtitle: "$149" },
+  { id:"10", image: gridimg10, title: "Kids Bottom", subtitle: "$149" },
+  { id:"11", image: gridimg9, title: "Women Round Neck Cotton Top", subtitle: "$149" },
+  { id:"12", image: gridimg10, title: "Men Bottom", subtitle: "$1500" },
 ];
 
 
 export const ShopContextProvider = ({ children }) => {
   const [products, setProducts] = useState(data);
-  const testData="testData"
-  const value = {products,testData}
+  
+  const value = {products}
   return (
 
     <shopContext.Provider value={value}>{children}</shopContext.Provider>

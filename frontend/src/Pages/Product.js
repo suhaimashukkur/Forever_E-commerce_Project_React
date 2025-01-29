@@ -3,27 +3,22 @@ import React, { useContext } from "react";
 import image2 from "../assets/images/star_icon.png";
 
 import border from "../assets/images/Rectangle 3147.png";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { shopContext } from "../Components/ShopContext";
-
+import FeaturedCollections from "../Components/FeaturedCollections/FeaturedCollections";
 
 function Product() {
-  const{products,testData} =useContext(shopContext)
-  console.log("products",products)
-  console.log(testData)
-  const {id} = useParams()
-  const productData=products.filter((item) => item.id =id)
-  console.log("productData",productData)
- 
- 
-  const handleAddToCart=()=>{
-   
-  }
+  const { products } = useContext(shopContext);
+  console.log("products", products);
+  
+  const { id } = useParams();
+  const productData = products.find((item) => (item.id === id));
+  console.log("productData", productData);
 
   return (
-   
+     
     <>
-    <div className="border-solid  border-length ml-32 mr-32 mt-4"></div>
+      <div className="border-solid  border-length ml-32 mr-32 mt-4"></div>
       <div className="flex ml-32 gap-3">
         <div className="flex flex-col mt-12 gap-3">
           <img
@@ -31,7 +26,6 @@ function Product() {
             src={productData.image}
             alt={productData.title}
           />
-         
         </div>
         <div className="mt-12 ">
           <img
@@ -78,10 +72,11 @@ function Product() {
               XXL
             </div>
           </div>
-          <Link to={`/product/${id}`}>
-          <button className="border-solid border-2 bg-[black] h-12 w-44 mt-2 text-white">
-            ADD TO CART
-          </button></Link>
+          <Link to={'/cart'}>
+            <button className="border-solid border-2 bg-[black] h-12 w-44 mt-2 text-white">
+              ADD TO CART
+            </button>
+          </Link>
           <div className="border-solid  border-length  mt-6"></div>
           <p className="font-normal text-sm leading-7 text-[#555555]">
             100% Original product.<br></br>
@@ -118,24 +113,22 @@ function Product() {
         </div>
       </div>
       <div className="flex  justify-center items-center">
-                <div className="mt-14 font-normal text-3xl leading-9 text-[#707070]">
-                  RELATED{" "}
-                  <span className="font-semibold text-[#171717] text-3xl leading-9">
-                    PRODUCTS
-                  </span>{" "}
-                </div>
-                <img
-                  className=" h-0.5 w-12 mt-14 pl-1  "
-                  src={border}
-                  alt="border-line"
-                />
-                
-
-              </div>
-              
-      
-      
+        <div className="mt-14 font-normal text-3xl leading-9 text-[#707070]">
+          RELATED{" "}
+          <span className="font-semibold text-[#171717] text-3xl leading-9">
+            PRODUCTS
+          </span>{" "}
+        </div>
+        <img
+          className=" h-0.5 w-12 mt-14 pl-1  "
+          src={border}
+          alt="border-line"
+        />
+      </div>
+    
+    
     </>
+  
   );
 }
 

@@ -14,22 +14,22 @@ function Header({ setShowSearchbar }) {
 
   let navItems = [
     {
-      id: 1,
+    
       name: "HOME",
       value: "/",
     },
     {
-      id: 2,
+      
       name: "COLLECTION",
       value: "/collection",
     },
     {
-      id: 3,
+      
       name: "ABOUT",
       value: "/about",
     },
     {
-      id: 4,
+      
       name: "CONTACT",
       value: "/contact",
     },

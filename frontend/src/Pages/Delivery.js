@@ -1,14 +1,11 @@
 import React from "react";
 import border from "../assets/images/Rectangle 3619.png";
-import { useNavigate } from "react-router-dom";
+import {Link} from 'react-router-dom'
+
 import '../Components/HomeBanner/HomeBanner.css'
 
 function Delivery() {
-  const navigate= useNavigate()
-  const handlePlaceOrder=() =>{
-    navigate('/orders')
-
-  }
+ 
   return (
     <section>
      <div className="border-solid   ml-32 mr-32 mt-2 border-length"></div>
@@ -130,8 +127,9 @@ function Delivery() {
                         <div className="border-solid border-2 h-10 w-36 border-[#707070]   pl-2 pt-1 text-[13px]"><input className="pt-1"  type="checkbox" />   Cash On Delivery</div>
 
                      </div>
-                  <button className="border-solid border-2 h-12 w-60 mt-8 bg-black text-white ml-80 " onClick={handlePlaceOrder}>PLACE ORDER</button>
-  
+                     <Link to={'/orders'}>
+                  <button className="border-solid border-2 h-12 w-60 mt-8 bg-black text-white ml-80 " >PLACE ORDER</button>
+  </Link>
            </div>
               
 
