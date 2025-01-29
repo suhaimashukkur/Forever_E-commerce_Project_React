@@ -2,11 +2,12 @@ import React from "react";
 import EmailLabel from "../Components/EmailLabel/EmailLabel";
 import border from "../assets/images/Rectangle 3619.png";
 import contactImg from "../assets/images/contact_img.png";
+import '../Components/HomeBanner/HomeBanner.css'
 
 function Contact() {
   return (
     <section >
-      <div className="border-solid  border-[0.5px] ml-32 mr-32 mt-4"></div>
+      <div className="border-solid  border-length ml-32 mr-32 mt-4"></div>
       <div className="flex  justify-center items-center">
         <div className="mt-14 font-normal text-3xl leading-9 text-[#707070]">
           CONTACT{" "}
@@ -15,15 +16,15 @@ function Contact() {
           </span>{" "}
         </div>
         <img
-          className=" h-[2px] w-12 mt-14 pl-1  "
+          className=" h-0.5 w-12 mt-14 pl-1  "
           src={border}
           alt="border-line"
         />
       </div>
       
-      <div className="flex  items-center justify-center gap-16 pt-20">
+      <div className="flex  items-center justify-center gap-16 pt-14">
         <div
-          className="h-[496px] w-[486px]  bg-cover bg-center"
+          className="contact-img  bg-cover bg-center"
           style={{ backgroundImage: `url(${contactImg})` }}
         ></div>
         <div>

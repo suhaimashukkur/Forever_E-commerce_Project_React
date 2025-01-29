@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import border from "../assets/images/Rectangle 3619.png";
+import '../Components/HomeBanner/HomeBanner.css'
 
 function SignupLogin() {
   const [isLogin, setIsLogin] = useState(true);
@@ -8,13 +9,13 @@ function SignupLogin() {
   };
   return (
     <>
-    <div className="border-solid  border-[0.5px] ml-32 mr-32 mt-4"></div>
+    <div className="border-solid  border-length ml-32 mr-32 mt-4"></div>
       <div className="flex justify-center items-center">
         <h2 className="text-center text-4xl leading-8 font-medium text-[#414141] mt-36">
           {isLogin ? "Login" : "Sign Up"}
         </h2>
         <img
-          className=" h-[2px] w-12 mt-40 pl-1  "
+          className=" h-0.5 w-12 mt-40 pl-1  "
           src={border}
           alt="border-line"
         />
@@ -48,6 +49,8 @@ function SignupLogin() {
               required
               className="w-full h-12 border-solid border-2 border-[#707070]  rounded-md focus:outline-none focus:ring  focus:ring-gray-400 pl-3  "
             />
+          
+            
           </label>
           <div className="flex justify-between">
             <div className="text-[#414141] cursor-pointer">
@@ -66,6 +69,7 @@ function SignupLogin() {
               onSubmit={handleToggle}
             >
               {isLogin ? "Login" : "Sign Up"}
+              
             </button>
           </div>
         </form>

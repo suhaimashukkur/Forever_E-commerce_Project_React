@@ -2,12 +2,13 @@ import React from "react";
 import EmailLabel from "../Components/EmailLabel/EmailLabel";
 import border from "../assets/images/Rectangle 3147.png";
 import aboutImg from "../assets/images/about_img.png";
+import '../Components/HomeBanner/HomeBanner.css'
 
 function About() {
   return (
     <>
       <section>
-      <div className="border-solid  border-[0.5px] ml-32 mr-32 mt-4"></div>
+      <div className="border-solid   ml-32 mr-32 mt-4 border-length"></div>
         {/* Heading */}
         <div className="flex justify-center items-center">
           <div className="mt-14 font-normal text-3xl leading-9 text-[#707070]">
@@ -17,7 +18,7 @@ function About() {
             </span>{" "}
           </div>
           <img
-            className="h-[2px] w-12 mt-14 pl-1"
+            className="h-0.5 w-12 mt-14 pl-1"
             src={border}
             alt="border-line"
           />
@@ -28,7 +29,7 @@ function About() {
         <div className="flex items-center justify-center gap-20 pt-10 ml-32">
           {/* Image Section */}
           <div
-            className="w-1/2 h-[496px] bg-cover bg-center"
+            className="w-1/2  bg-cover bg-center img-height"
             style={{ backgroundImage: `url(${aboutImg})` }}
           ></div>
 
@@ -68,7 +69,7 @@ function About() {
                 CHOOSE US
               </span>
             </div>
-            <table className="border-solid border-2 border-[#ABABAB] w-full h-[385px] ">
+            <table className="border-solid border-2 border-[#ABABAB] w-full h-80 ">
               <tbody>
                 <tr className="border-solid border-2 w-1/3">
                   <td className="border border-[#ABABAB] text-center">

@@ -1,6 +1,7 @@
 import React from "react";
 import imgbanner from "../../assets/images/file 1 (1).png";
 import border from "../../assets/images/Rectangle 3147.png";
+import './HomeBanner.css'
 
 function HomeBanner() {
   return (
@@ -8,8 +9,8 @@ function HomeBanner() {
       <div className=" flex flex-col   w-1/2 justify-center items-center">
       
         <div className="flex ">
-          <img className=" h-[2px] w-12 mt-2 " src={border} alt="border-line" />
-          <div className="sm:text-[12px] lg:text-base font-medium leading-5 text-[#414141] pl-2">
+          <img className=" h-0.5 w-12 mt-3 " src={border} alt="border-line" />
+          <div className=" lg:text-base font-medium leading-5 text-[#414141] pl-2">
             OUR BESTSELLERS
           </div>
         </div>
@@ -21,7 +22,7 @@ function HomeBanner() {
             SHOP NOW
           </div>
           <img
-            className=" h-[2px] w-12 mt-6 pl-2 "
+            className=" h-0.5 w-12 mt-7 pl-2 "
             src={border}
             alt="border-line"
           />
@@ -30,7 +31,7 @@ function HomeBanner() {
       </div>
       <div className=" bg-[#FFDAD6]"> {/* Flex container for proper alignment */}
         <img
-          className="w-full h-[470px] object-cover"
+          className="w-full  object-cover img-height"
           src={imgbanner}
           alt="homebanner-img"
         />

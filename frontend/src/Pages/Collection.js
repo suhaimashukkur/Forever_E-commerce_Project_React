@@ -12,7 +12,8 @@ import gridimg9 from "../assets/images/Rectangle 3634.png";
 import gridimg10 from "../assets/images/Rectangle 3635.png";
 import search from "../assets/images/search icon.png";
 import { Link } from "react-router-dom";
-
+import '../Components/HomeBanner/HomeBanner.css'
+import Product from "./Product";
 function Collection({ showSearchbar, setShowSearchbar }) {
   let AllCollections = [
     { id:1,image: gridimg1, title: "Women Round Neck Cotton Top", subtitle: "$149" },
@@ -31,7 +32,7 @@ function Collection({ showSearchbar, setShowSearchbar }) {
 
   return (
     <>
-    <div className="border-solid  border-[0.5px] ml-32 mr-32 mt-4"></div>
+   
       {showSearchbar && (
         <div className="bg-gray-100 ml-32 mr-32">
           <div className="border-t border-[#ADADAD] mt-6 "></div>
@@ -55,7 +56,7 @@ function Collection({ showSearchbar, setShowSearchbar }) {
 
             {/* Close Button placed outside, but near the search box */}
             <div
-              className="cursor-pointer absolute text-xl font-semibold h-6 w-6 flex justify-center items-center left-[950px]"
+              className="cursor-pointer absolute text-xl font-normal h-6 w-6 flex justify-center items-center close-button"
               onClick={() => setShowSearchbar(false)}
             >
               X
@@ -72,7 +73,7 @@ function Collection({ showSearchbar, setShowSearchbar }) {
             <div className="ml-32 text-2xl leading-7 text-[#343434] mt-28 ">
               Filters
             </div>
-            <div className="border-solid border-2 w-[215px] h-40 ml-32 mt-4 ">
+            <div className="border-solid border-2 w-52 h-40 ml-32 mt-4 ">
               <div className="font-normal text-lg pl-3 leading-5 text-[#212121] mt-2">
                 CATEGORIES
               </div>
@@ -138,7 +139,7 @@ function Collection({ showSearchbar, setShowSearchbar }) {
                   COLLECTIONS
                 </span>
                 <img
-                  className="h-[2px] w-12 mt-6 ml-2 "
+                  className="h-0.5 w-12 mt-6 ml-2 "
                   src={border}
                   alt="img-border"
                 />
@@ -155,8 +156,8 @@ function Collection({ showSearchbar, setShowSearchbar }) {
                 <>
                   <div>
                     <div key={i.id}>
-                    <Link to={`/product/${i.id}`}>
-                    <img className="" src={i.image} alt="grid-img" />
+                    <Link to={`/product/${i.id}`} state={{i}}>
+                    <img className="transition ease-in-out hover:scale-105" src={i.image} alt="grid-img" />
                     </Link>
 
                     <div className="font-medium leading-4 text-[#494949] text-xs mt-5 mb-2">
