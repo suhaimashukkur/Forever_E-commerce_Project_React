@@ -1,76 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import image2 from "../assets/images/star_icon.png";
 
 import border from "../assets/images/Rectangle 3147.png";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { shopContext } from "../Components/ShopContext";
 
 
 function Product() {
+  const{products,testData} =useContext(shopContext)
+  console.log("products",products)
+  console.log(testData)
   const {id} = useParams()
-  const location = useLocation();
-  const productGet = location.state?.i || {};
-  const navigate=useNavigate();
+  const productData=products.filter((item) => item.id =id)
+  console.log("productData",productData)
+ 
+ 
   const handleAddToCart=()=>{
-    navigate('/cart')
+   
   }
-//   const Products = [
-//     {
-//       "_id": "1",
-//       "name": "Men Round Neck Pure Cotton T-shirt",
-//       "description": "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
-//       "price": 80,
-//       "image": [ image1,image2],
-//       "category": "Men",
-//       "subCategory": "Topwear",
-//       "sizes": ["S", "M", "L","XL","XXL" ],
-//       "bestseller":false,
-//   },
-//   {
-//     "_id": "2",
-//     "name": "Men Round Neck Pure Cotton T-shirt",
-//     "description": "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
-//     "price": 80,
-//     "image": [ image1,image2],
-//     "category": "Men",
-//     "subCategory": "Topwear",
-//     "sizes": ["S", "M", "L","XL","XXL" ],
-//     "bestseller":false,
-// },
-// {
-//   "_id": "3",
-//   "name": "Kids Round Neck Pure Cotton T-shirt",
-//   "description": "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
-//   "price": 80,
-//   "image": [ image1,image2],
-//   "category": "Men",
-//   "subCategory": "Topwear",
-//   "sizes": ["S", "M", "L","XL","XXL" ],
-//   "bestseller":true,
-// },
-// {
-//   "_id": "4",
-//   "name": "Men Round Neck Pure Cotton T-shirt",
-//   "description": "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
-//   "price": 80,
-//   "image": [ image1,image2],
-//   "category": "Men",
-//   "subCategory": "Topwear",
-//   "sizes": ["S", "M", "L","XL","XXL" ],
-//   "bestseller":false,
-// },
-// {
-//   "_id": "5",
-//   "name": "Women Round Neck Pure Cotton T-shirt",
-//   "description": "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
-//   "price": 80,
-//   "image": [ image1,image2],
-//   "category": "Men",
-//   "subCategory": "Topwear",
-//   "sizes": ["S", "M", "L","XL","XXL" ],
-//   "bestseller":false,
-// }
-//   ]
+
   return (
    
     <>
@@ -79,21 +28,21 @@ function Product() {
         <div className="flex flex-col mt-12 gap-3">
           <img
             className="w-44 "
-            src={productGet.image}
-            alt={productGet.title}
+            src={productData.image}
+            alt={productData.title}
           />
          
         </div>
         <div className="mt-12 ">
           <img
             className="product-img "
-            src={productGet.image}
-            alt={productGet.title}
+            src={productData.image}
+            alt={productData.title}
           />
         </div>
         <div className="mr-32 flex flex-col space-y-4 ml-8">
           <div className="text-2xl font-medium leading-10 text-[#3D3D3D] mt-12">
-            {productGet.title}
+            {productData.title}
           </div>
 
           <div className="flex gap-2">
@@ -104,7 +53,7 @@ function Product() {
             <img className="h-5 w-5" src={image2} alt="start" />
           </div>
           <div className="font-medium text-2xl leading-10 text-[#2A2A2A]">
-            {productGet.subtitle}
+            {productData.subtitle}
           </div>
           <div className="mr-32 font-normal text-m leading-7 text-[#555555]">
             A lightweight, usually knitted, pullover shirt, close-fitting and
@@ -129,9 +78,10 @@ function Product() {
               XXL
             </div>
           </div>
-          <button className="border-solid border-2 bg-[black] h-12 w-44 mt-2 text-white" onClick={handleAddToCart}>
+          <Link to={`/product/${id}`}>
+          <button className="border-solid border-2 bg-[black] h-12 w-44 mt-2 text-white">
             ADD TO CART
-          </button>
+          </button></Link>
           <div className="border-solid  border-length  mt-6"></div>
           <p className="font-normal text-sm leading-7 text-[#555555]">
             100% Original product.<br></br>

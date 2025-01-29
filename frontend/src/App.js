@@ -17,11 +17,14 @@ import MyOrders from "./Pages/MyOrders";
 import AdminLogin from "./Pages/Admin/AdminLogin";
 import AdminHome from "./Pages/Admin/AdminHome";
 import Product from "./Pages/Product";
+import { ShopContextProvider } from "./Components/ShopContext";
 
 function App() {
   const [showSearchbar, setShowSearchbar] = useState(false);
   return (
+  <ShopContextProvider>
     <BrowserRouter>
+    
       <Header  setShowSearchbar={setShowSearchbar}/>
       <Routes>
         <Route path="/" element={<Home />}></Route>
@@ -49,7 +52,10 @@ function App() {
       </Routes>
 
       <Footer />
+  
     </BrowserRouter>
+    </ShopContextProvider>
+ 
   );
 }
 

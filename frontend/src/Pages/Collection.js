@@ -1,35 +1,16 @@
 import React from "react";
 import border from "../assets/images/Rectangle 3619.png";
-import gridimg1 from "../assets/images/Rectangle 3608.png";
-import gridimg2 from "../assets/images/Rectangle 3609.png";
-import gridimg3 from "../assets/images/Rectangle 3611.png";
-import gridimg4 from "../assets/images/Rectangle 3613.png";
-import gridimg5 from "../assets/images/Rectangle 3615.png";
-import gridimg6 from "../assets/images/Rectangle 3616.png";
-import gridimg7 from "../assets/images/Rectangle 3617.png";
-import gridimg8 from "../assets/images/Rectangle 3619.png";
-import gridimg9 from "../assets/images/Rectangle 3634.png";
-import gridimg10 from "../assets/images/Rectangle 3635.png";
+
 import search from "../assets/images/search icon.png";
 import { Link } from "react-router-dom";
 import '../Components/HomeBanner/HomeBanner.css'
 import Product from "./Product";
+import { shopContext } from "../Components/ShopContext";
+import { useContext } from "react";
 function Collection({ showSearchbar, setShowSearchbar }) {
-  let AllCollections = [
-    { id:1,image: gridimg1, title: "Women Round Neck Cotton Top", subtitle: "$149" },
-    { id:2, image: gridimg2, title: "Women Round Neck Cotton Top", subtitle: "$149" },
-    { id:3, image: gridimg3, title: "Women Round Neck Cotton Top", subtitle: "$149" },
-    { id:4, image: gridimg4, title: "Women Round Neck Cotton Top", subtitle: "$149" },
-    { id:5, image: gridimg5, title: "Women Round Neck Cotton Top", subtitle: "$149" },
-    { id:6, image: gridimg6, title: "Women Round Neck Cotton Top", subtitle: "$149" },
-    { id:7, image: gridimg7, title: "Women Round Neck Cotton Top", subtitle: "$149" },
-    { id:8, image: gridimg8, title: "Women Round Neck Cotton Top", subtitle: "$149" },
-    { id:9, image: gridimg9, title: "Women Round Neck Cotton Top", subtitle: "$149" },
-    { id:10, image: gridimg10, title: "Women Round Neck Cotton Top", subtitle: "$149" },
-    { id:11, image: gridimg9, title: "Women Round Neck Cotton Top", subtitle: "$149" },
-    { id:12, image: gridimg10, title: "Women Round Neck Cotton Top", subtitle: "$149" },
-  ];
-
+  const {products} =useContext(shopContext)
+  console.log("collection",products)
+ 
   return (
     <>
    
@@ -152,11 +133,11 @@ function Collection({ showSearchbar, setShowSearchbar }) {
               </div>
             </div>
             <div className="grid grid-cols-4 gap-7 mt-8 ml-10 mr-32">
-              {AllCollections.map((i) => (
+              {products.map((i) => (
                 <>
                   <div>
                     <div key={i.id}>
-                    <Link to={`/product/${i.id}`} state={{i}}>
+                    <Link to={`/product/${i.id}`}>
                     <img className="transition ease-in-out hover:scale-105" src={i.image} alt="grid-img" />
                     </Link>
 
