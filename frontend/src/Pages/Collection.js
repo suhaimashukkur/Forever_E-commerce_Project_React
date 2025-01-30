@@ -4,12 +4,9 @@ import border from "../assets/images/Rectangle 3619.png";
 import search from "../assets/images/search icon.png";
 import { Link } from "react-router-dom";
 import "../Components/HomeBanner/HomeBanner.css";
-import Product from "./Product";
+
 import { shopContext } from "../Components/ShopContext";
 import { useContext } from "react";
-
-
-
 
 function Collection({ showSearchbar, setShowSearchbar }) {
   const { products } = useContext(shopContext);

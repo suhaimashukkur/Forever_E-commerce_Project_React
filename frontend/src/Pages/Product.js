@@ -112,20 +112,9 @@ function Product() {
           </p>
         </div>
       </div>
-      <div className="flex  justify-center items-center">
-        <div className="mt-14 font-normal text-3xl leading-9 text-[#707070]">
-          RELATED{" "}
-          <span className="font-semibold text-[#171717] text-3xl leading-9">
-            PRODUCTS
-          </span>{" "}
-        </div>
-        <img
-          className=" h-0.5 w-12 mt-14 pl-1  "
-          src={border}
-          alt="border-line"
-        />
-      </div>
+     
     
+    <FeaturedCollections title1="RELATED" title2="PRODUCTS" limit={5} hideDescription={true}      />
     
     </>
   

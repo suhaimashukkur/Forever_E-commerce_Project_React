@@ -29,7 +29,7 @@ const data  = [
 
 export const ShopContextProvider = ({ children }) => {
   const [products, setProducts] = useState(data);
-  
+
   const value = {products}
   return (
 
