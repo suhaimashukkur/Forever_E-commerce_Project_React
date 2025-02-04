@@ -5,12 +5,12 @@ import search from "../assets/images/search icon.png";
 import { Link } from "react-router-dom";
 import "../Components/HomeBanner/HomeBanner.css";
 
-import { shopContext } from "../Components/ShopContext";
 import { useContext } from "react";
+import { shopContext } from "../Components/Context/ShopContext";
 
 function Collection({ showSearchbar, setShowSearchbar }) {
   const { products } = useContext(shopContext);
-  console.log("collection", products);
+
 
   return (
     <>
@@ -137,7 +137,7 @@ function Collection({ showSearchbar, setShowSearchbar }) {
                 <>
                   <div>
                     <div key={i.id}>
-                      <Link to={`/product/${i.id}`}>
+                      <Link to={`/product/${i._id}`}>
                         <img
                           className="transition ease-in-out hover:scale-105"
                           src={i.image}
@@ -146,10 +146,10 @@ function Collection({ showSearchbar, setShowSearchbar }) {
                       </Link>
 
                       <div className="font-medium leading-4 text-[#494949] text-xs mt-5 mb-2">
-                        {i.title}
+                        {i.name}
                       </div>
                       <div className="font-medium leading-4 text-[#494949] text-xs ">
-                        {i.subtitle}
+                        {i.price}
                       </div>
                     </div>
                   </div>

@@ -17,7 +17,8 @@ import MyOrders from "./Pages/MyOrders";
 import AdminLogin from "./Pages/Admin/AdminLogin";
 import AdminHome from "./Pages/Admin/AdminHome";
 import Product from "./Pages/Product";
-import { ShopContextProvider } from "./Components/ShopContext";
+import { ShopContextProvider } from "./Components/Context/ShopContext";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const [showSearchbar, setShowSearchbar] = useState(false);
@@ -26,6 +27,7 @@ function App() {
     <BrowserRouter>
     
       <Header  setShowSearchbar={setShowSearchbar}/>
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route
