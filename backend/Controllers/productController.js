@@ -1,6 +1,8 @@
 const express = require('express')
 const Product = require('../Models/productSchema')
-const productSchema = require('../Models/productSchema')
+
+const upload = require('../Middleware/multer')
+const cloudinary = require("cloudinary").v2;
 
 exports.createProduct = async(req,res) =>{
     try{
@@ -61,4 +63,13 @@ exports.deleteProducts= async (req,res)=>{
     
 
     }
+}
+
+exports.uploadImage = async(req,res) =>{
+     console.log(req.file);
+  const imageURI = await cloudinary.uploader.upload(req.file.path, {
+    resource_type: "image",
+  });
+  console.log(imageURI);
+  res.send(imageURI);
 }
