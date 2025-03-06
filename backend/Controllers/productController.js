@@ -115,42 +115,16 @@ exports.addProducts = async (req, res) => {
   }
 };
 
-exports.deleteProducts = async (req, res) => {
-  try {
-    const { id } = req.params;
-
-    // Find the product
-    const product = await Product.findById(id);
-    if (!product) {
-      return res
-        .status(404)
-        .json({ success: false, message: "Product not found" });
-    }
-
-    // Remove images from Cloudinary
-    if (product.image && product.image.length > 0) {
-      await Promise.all(
-        product.image.map(async (imageUrl) => {
-          const publicId = imageUrl.split("/").pop().split(".")[0]; 
-          await cloudinary.uploader.destroy(publicId);
-        })
-      );
-    }
-
-    // Delete product from the database
-    await Product.findByIdAndDelete(id);
-
-    res
-      .status(200)
-      .json({ success: true, message: "Product deleted successfully" });
-  } catch (error) {
-    console.error(error);
-    res
-      .status(500)
-      .json({ success: false, message: "Server error", error: error.message });
-  }
-};
-
+exports.deleteProducts= async (req,res)=>{
+       try{
+           const deleteProducts=await Product.findByIdAndDelete(req.params.id,req.body)
+           res.status(200).json({message:"product deleted successfuly",deleteProducts})
+       }catch(err){
+           res.status(400).json({message:"error",err})
+  
+       }
+   }
+  
 //getSingleProduct
 
 exports.getIdProducts = async (req, res) => {

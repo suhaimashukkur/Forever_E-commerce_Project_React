@@ -1,6 +1,7 @@
 const express = require("express");
 const productRouter = require("./Routers/productRouter");
 const userRouter = require('./Routers/userRoutes')
+const orderRouter = require('./Routers/orderRoutes')
 const cors = require("cors");
 const connectCloudinary = require('./Config/cloudinary')
 const mongoDB = require("./Config/mongodb");
@@ -20,6 +21,7 @@ app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 //api endpoints
 app.use("/product", productRouter);
 app.use('/user',userRouter)
+app.use('/order',orderRouter)
 
 
 app.listen(PORT, () => {

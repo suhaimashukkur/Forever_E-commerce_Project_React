@@ -30,7 +30,7 @@ const productSchema = new mongoose.Schema({
         require:true
      },
      sizes:{
-        type:[String],
+        type:Array,
         require:true
      },
      bestSeller:{
@@ -44,9 +44,9 @@ const productSchema = new mongoose.Schema({
         require:true
     },
     date:{
-        type:Date,
+        type:Number,
         require:true,
-        default:Date.now
+        
     }
 
 })
