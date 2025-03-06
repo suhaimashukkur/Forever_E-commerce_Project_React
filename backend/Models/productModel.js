@@ -16,7 +16,7 @@ const productSchema = new mongoose.Schema({
         require:true
     },
     image:{
-        type:[String],
+        type:Array,
         require:true
 
     },
@@ -51,5 +51,5 @@ const productSchema = new mongoose.Schema({
 
 })
 
-module.exports = mongoose.model("Product",productSchema)
+module.exports = mongoose.model.Product || mongoose.model("Product",productSchema)
 
