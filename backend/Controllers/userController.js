@@ -76,11 +76,14 @@ exports.loginUser = async (req,res) =>{
 exports.adminLogin = async(req,res) =>{
   try{
     const {email,password} = req.body;
+    
     if(email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD){
-      const token = jwt.sign(email,password,process.env.JWT_SECRET)
+      const token = jwt.sign({email,password},process.env.JWT_SECRET)
+      console.log(token,"token passed")
       res.json({status:true,token})
     }else{
-      res.json({status:false,message:"Invalid email or password"})
+      res.json({status:false,message:"Invalid email or password",data:process.env.ADMIN_EMAIL})
+      console.log(process.env.ADMIN_EMAIL,process.env.ADMIN_PASSWORD)
     }
   }catch(error){
     res.json({status:false,message:error.message})
