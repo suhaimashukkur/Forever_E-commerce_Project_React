@@ -6,7 +6,7 @@ const upload = require("../Middleware/multer");
 const productRouter = express.Router();
 
 productRouter.post(
-  "/add-products",
+  "/add",
   upload.fields([
     { name: "image1", maxCount: 1 },
     { name: "image2", maxCount: 1 },
