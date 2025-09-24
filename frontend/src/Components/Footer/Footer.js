@@ -4,7 +4,7 @@ import img from "../../assets/images/InsiderStats.png";
 function Footer() {
   return (
     <>
-    <div className="ml-32 flex items-start justify-between  mr-32">
+    <div className="ml-24 flex items-start justify-between  mr-24">
       <div className="mt-64  flex-col w-1/2">
         <img src={img} alt="logo-footer" />
         <div className="text-lg font-normal leading-7 mt-6">

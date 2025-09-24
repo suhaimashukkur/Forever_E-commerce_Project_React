@@ -7,8 +7,23 @@ import { shopContext } from "../Components/Context/ShopContext";
 import { toast } from "react-toastify";
 
 function Delivery() {
-  const { total, subTotal, shippingFee } = useContext(shopContext);
+  const { getCartAmount, delivery_fee, getCartCount } = useContext(shopContext);
   const [selectPayment, setSelectPayment] = useState("");
+  const[fname,setFname] =useState('')
+  const[lname,setLname] =useState('')
+  const[email,setEmail] =useState('')
+  const[street,setStreet]=useState('')
+  const[city,setCity] =useState('')
+  const[state,setState] =useState('')
+  const[zipCode,setZipCode] =useState("")
+  const[country,setCountry] =useState('')
+  const[phone,setPhone] =useState('')
+
+
+  const subTotal = getCartAmount();
+  const shippingFee = subTotal > 0 ? delivery_fee : 0;
+  const total = subTotal + shippingFee;
+
  
 
   return (
@@ -34,11 +49,13 @@ function Delivery() {
           <div className="flex flex-col space-y-4 ml-32 mt-20 ">
             <div className="flex gap-2">
               <label className=" border-solid border-2 h-10 w-64 border-[#707070] ">
-                <input
+                <input 
                   type="text"
                   placeholder="First Name"
-                  className="pl-3 pt-1"
+                  className="pl-3 pt-1 w-full h-full"
                   name="fname"
+                  value={fname}
+                  onChange={(e)=>setFname(e.target.value)}
                   required
                 />
               </label>
@@ -47,7 +64,9 @@ function Delivery() {
                 <input
                   type="text"
                   placeholder="Last Name"
-                  className="pl-3 pt-1"
+                  value={lname}
+                  onChange={(e) =>setLname(e.target.value)}
+                  className="pl-3 pt-1 w-full h-full"
                   required
                   name="lname"
                 />
@@ -57,7 +76,9 @@ function Delivery() {
               <input
                 type="email"
                 placeholder="Email"
-                className="pl-3 pt-1"
+                value={email}
+                  onChange={(e) =>setEmail(e.target.value)}
+                className="pl-3 pt-1 w-full h-full"
                 name="email"
                 required
               />
@@ -66,8 +87,10 @@ function Delivery() {
               <input
                 type="text"
                 placeholder="Street"
-                className="pl-3 pt-1"
+                className="pl-3 pt-1 w-full h-full"
                 name="street"
+                value={street}
+                  onChange={(e) =>setStreet(e.target.value)}
                 required
               />
             </label>
@@ -77,8 +100,10 @@ function Delivery() {
                   type="text"
                   name="city"
                   required
+                  value={city}
+                  onChange={(e) =>setCity(e.target.value)}
                   placeholder="City"
-                  className="pl-3 pt-1"
+                  className="pl-3 pt-1 w-full h-full"
                 />
               </label>
               <label className=" border-solid border-2 h-10 w-64 border-[#707070]">
@@ -87,7 +112,9 @@ function Delivery() {
                   name="state"
                   required
                   placeholder="State"
-                  className="pl-3 pt-1"
+                  value={state}
+                  onChange={(e) =>setState(e.target.value)}
+                  className="pl-3 pt-1 w-full h-full"
                 />
               </label>
             </div>
@@ -98,7 +125,9 @@ function Delivery() {
                   name="zipcode"
                   required
                   placeholder="Zip Code"
-                  className="pl-3 pt-1"
+                  value={zipCode}
+                  onChange={(e) =>setZipCode(e.target.value)}
+                  className="pl-3 pt-1 w-full h-full"
                 />
               </label>
               <label className=" border-solid border-2 h-10 w-64 border-[#707070]">
@@ -107,7 +136,9 @@ function Delivery() {
                   name="country"
                   required
                   placeholder="Country"
-                  className="pl-3 pt-1"
+                  value={country}
+                  onChange={(e) =>setCountry(e.target.value)}
+                  className="pl-3 pt-1 w-full h-full"
                 />
               </label>
             </div>
@@ -116,8 +147,10 @@ function Delivery() {
                 type="number"
                 required
                 name="phone"
+                value={phone}
+                  onChange={(e) =>setPhone(e.target.value)}
                 placeholder="Phone Number"
-                className="pl-3 pt-1"
+                className="pl-3 pt-1 w-full h-full"
               />
             </label>
           </div>
@@ -180,6 +213,7 @@ function Delivery() {
           </Link>
         </div>
       </div>
+      
     </section>
   );
 }

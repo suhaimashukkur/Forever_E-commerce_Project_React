@@ -129,41 +129,47 @@ const Add = ({ token }) => {
 
         <div className="flex">
           <div className="flex flex-col">
-            <div className="ml-8 mt-8 font-semibold text-[gray] text-xl">
+            <div className="ml-8 mt-6 font-semibold text-[gray] text-xl">
               Product Category
             </div>
             <div className="border-solid border-2 w-40 h-11   pl-3 pt-2 border-gray-300 ml-8 mt-8">
               <select
-                className="font-normal text-lg text-center border-none outline-none"
+                className="font-medium text-m text-gray-500  text-center border-none outline-none"
                 onChange={(e) => setCategory(e.target.value)}
                 value={category}
               >
-                <option value="low"> MEN</option>
-                <option value="high">WOMEN</option>
+                <option  value="" disabled>
+    Select 
+  </option>
+                <option value="Men"> MEN</option>
+                <option value="Women">WOMEN</option>
                 <option value="kids">KIDS</option>
               </select>
             </div>
           </div>
           <div className="flex flex-col">
-            <div className="ml-8 mt-8 font-semibold text-[gray] text-xl">
+            <div className="ml-8 mt-6 font-semibold text-[gray] text-xl">
               {" "}
               SubCategory
             </div>
             <div className="border-solid border-2 w-40 h-11   pl-3 pt-2 border-gray-300 ml-8 mt-8">
               <select
-                className="font-normal text-lg text-center border-none outline-none"
+                className="font-medium text-m text-gray-500 text-center border-none outline-none"
                 onChange={(e) => setSubCategory(e.target.value)}
                 value={subCategory}
               >
-                <option value="low"> Top Wear</option>
-                <option value="high">Bottom Wear</option>
+                <option  value="" disabled>
+    Select 
+  </option>
+                <option value="Top"> Top Wear</option>
+                <option value="Bottom">Bottom Wear</option>
                 <option value="kids">Winter Wear</option>
               </select>
             </div>
           </div>
 
           <div className="flex flex-col">
-            <div className="ml-8 mt-8 font-semibold text-[gray] text-xl">
+            <div className="ml-10 mt-6 font-semibold text-[gray] text-xl">
               Product Price
             </div>
 
@@ -173,7 +179,7 @@ const Add = ({ token }) => {
               name="number"
               
               min="1"
-              max="100"
+              max="10000"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
             />

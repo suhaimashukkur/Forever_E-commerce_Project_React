@@ -51,6 +51,7 @@ const List = ({ token }) => {
             <th className="py-2 px-4 border-b  bg-gray-50">Name</th>
             <th className="py-2 px-4 border-b  bg-gray-50">Category</th>
             <th className="py-2 px-4 border-b  bg-gray-50">Price</th>
+         
             <th className="py-2 px-4 border-b  bg-gray-50">Action</th>
           </tr>
         </thead>
@@ -63,6 +64,7 @@ const List = ({ token }) => {
               <td className="py-2 px-4 border-b">{item.name}</td>
               <td className="py-2 px-4 border-b">{item.category}</td>
               <td className="py-2 px-4 border-b">{item.price}</td>
+              
               <td className="py-2 px-4 border-b">
                 <button
                   onClick={() => removeProducts(item._id)}

@@ -14,11 +14,13 @@ import Cart from "./Pages/Cart";
 import { useState } from "react";
 import Delivery from "./Pages/Delivery";
 import MyOrders from "./Pages/MyOrders";
-import AdminLogin from "./Pages/Admin/AdminLogin";
+
 import AdminHome from "./Pages/Admin/AdminHome";
 import Product from "./Pages/Product";
 import { ShopContextProvider } from "./Components/Context/ShopContext";
 import { ToastContainer } from "react-toastify";
+
+
 
 function App() {
   const [showSearchbar, setShowSearchbar] = useState(false);
@@ -41,8 +43,11 @@ function App() {
         ></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
-        <Route path="/admin-login" element={<AdminLogin />}></Route>
+        {/* <Route path="/admin" element={<Login />}></Route> */}
+        
+
         <Route path="/login" element={<SignupLogin />}></Route>
+       
         <Route path='/product/:id' element={<Product />}></Route>
     
         <Route path="/cart" element={<Cart />}></Route>

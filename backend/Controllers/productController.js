@@ -118,9 +118,9 @@ exports.addProducts = async (req, res) => {
 exports.deleteProducts= async (req,res)=>{
        try{
            const deleteProducts=await Product.findByIdAndDelete(req.params.id,req.body)
-           res.status(200).json({message:"product deleted successfuly",deleteProducts})
+           res.json({success:true,message:"product deleted successfuly",deleteProducts})
        }catch(err){
-           res.status(400).json({message:"error",err})
+           res.json({status:false,message:error.message})
   
        }
    }
@@ -131,7 +131,7 @@ exports.getIdProducts = async (req, res) => {
   try {
     const id = req.params.id;
     const getIdProducts = await Product.findById(id);
-    res.status(200).json({ message: "product get by id", getIdProducts });
+    res.json({success:true, message: "product get by id" });
   } catch (err) {
     res.status(400).json({ message: "error in server", err });
   }
@@ -142,7 +142,7 @@ exports.getIdProducts = async (req, res) => {
 exports.getAllProducts = async (req, res) => {
   try {
     const getAllProducts = await Product.find();
-    res.status(200).json({ success: "all products", getAllProducts });
+    res.json({ success:true,message: "all products", getAllProducts });
   } catch (err) {
     res.status(400).json({ message: "bad request", err });
   }

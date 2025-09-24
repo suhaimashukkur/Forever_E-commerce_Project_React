@@ -7,6 +7,7 @@ import Header from "./Components/Header";
 import SideBar from "./Components/SideBar";
 import Add from "./Pages/addItems";
 import List from './Pages/list'
+import Orders from "./Pages/orders";
 
 export const backend_url = process.env.REACT_APP_BACKEND_URL;
 
@@ -35,7 +36,7 @@ function App() {
               <Routes>
                 <Route path="/add" element={<Add token={token} />} />
                 <Route path="/list" element={<List token={token}/>} />
-                {/* <Route path="/order" element={<Order />} /> */}
+                <Route path="/order" element={<Orders />} />
               </Routes>
             </div>
           </div>

@@ -5,7 +5,7 @@ import './HomeBanner.css'
 
 function HomeBanner() {
   return (
-    <div className="flex sm:flex-col lg:flex-row border-solid border-2 sm:ml-12 sm:mr-12 lg:ml-32 lg:mr-32 mt-7  ">
+    <div className="flex sm:flex-col lg:flex-row border-solid border-2 sm:ml-12 sm:mr-12 lg:ml-24 lg:mr-24 mt-7  ">
       <div className=" flex flex-col   w-1/2 justify-center items-center">
       
         <div className="flex ">

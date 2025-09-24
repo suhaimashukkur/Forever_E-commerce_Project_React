@@ -27,9 +27,18 @@ function SideBar() {
           >
             List
           </NavLink>
-          <div className="flex border-solid border-2 h-10 w-40 bg-gray-50 ml-14 mt-5 text-center cursor-pointer  hover:bg-pink-200 pl-5 pt-1 font-semibold ">
+          <NavLink
+            to="/order"
+            className={({
+              isActive,
+            }) => `flex border-solid border-2 h-10 w-40 ml-14 mt-5 text-center cursor-pointer pl-5 pt-1 font-semibold ${
+              isActive ? "bg-pink-200" : "bg-gray-50"
+            
+      }`}
+          >
             Orders
-          </div>
+          </NavLink>
+         
         </div>
         <div className="border-l-2 border-gray-200 h-screen ml-6"></div>
       </div>

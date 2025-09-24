@@ -23,10 +23,10 @@ exports.registerUser = async(req,res) => {
 
     //validate email and password
     if(!validator.isEmail(email)){
-      res.json({status:false, message:"please enter a valid email"})
+      res.json({success:false, message:"please enter a valid email"})
     }
     if(password.length < 8){
-      res.json({status:false, message:"please enter a strong password"})
+      res.json({success:false, message:"please enter a strong password"})
     }
 
     //hashing password
@@ -41,10 +41,10 @@ exports.registerUser = async(req,res) => {
     })
     const user = await newUser.save()
     const token = createToken(user._id)
-    res.json({status:true,token})
+    res.json({success:true,token})
 
   }catch(error){
-    res.json({status:false, message:error.message})
+    res.json({success:false, message:error.message})
   }
 }
 
@@ -55,18 +55,18 @@ exports.loginUser = async (req,res) =>{
     const {email,password} = req.body;
     const user = await User.findOne({email});
     if(!user){
-      res.json({status:false, message:"User doesn't exist"})
+      res.json({success:false, message:"User doesn't exist"})
     }
     const isMatch = await bcrypt.compare(password,user.password)
     if(isMatch){
       const token = createToken(user._id)
-      res.json({status:true,token})
+      res.json({success:true,token})
     }else{
-      res.json({status:false, message:"invalid email or password"})
+      res.json({success:false, message:"invalid email or password"})
     }
   }catch(error){
     console.log(error)
-    res.json({status:false,message:error.message})
+    res.json({success:false,message:error.message})
       
   }
 }
