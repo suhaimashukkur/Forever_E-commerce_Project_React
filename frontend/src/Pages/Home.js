@@ -11,6 +11,8 @@ function Home() {
   return (
     <>
     <HomeBanner />
+
+    
        <FeaturedCollections title1="LATEST" title2="COLLECTIONS" limit={10} />
        <FeaturedCollections title1="BEST" title2="SELLER" limit={5} />
        <ThreeIcons />
