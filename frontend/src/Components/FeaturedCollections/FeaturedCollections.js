@@ -42,7 +42,8 @@ function FeaturedCollections({ title1, title2, limit, hideDescription }) {
       )}
       {/* Product Grid */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-7">
-        {displayedCollections.map((item) => (
+        {
+        displayedCollections.map((item) => (
           <div key={item.id}>
             <Link to={`/product/${item._id}`}>
               <img

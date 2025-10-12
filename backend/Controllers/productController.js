@@ -120,7 +120,7 @@ exports.deleteProducts= async (req,res)=>{
            const deleteProducts=await Product.findByIdAndDelete(req.params.id,req.body)
            res.json({success:true,message:"product deleted successfuly",deleteProducts})
        }catch(err){
-           res.json({status:false,message:error.message})
+           res.json({status:false,message:err.message})
   
        }
    }

@@ -25,6 +25,7 @@ function SignupLogin() {
         if(response.data.success){
           setToken(response.data.token)
           localStorage.setItem('token',response.data.token)
+          localStorage.setItem('userid',response.data.id)
           toast.success("Registerd Successfully")
         }else{
           toast.error(response.data.message);
@@ -36,6 +37,7 @@ function SignupLogin() {
         if(response.data.success){
           console.log("its a data success")
           setToken(response.data.token)
+            localStorage.setItem('userid',response.data.id)
           localStorage.setItem('token',response.data.token)
           toast.success("Login Successfully")
         }else{

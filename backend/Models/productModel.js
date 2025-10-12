@@ -44,7 +44,7 @@ const productSchema = new mongoose.Schema({
         require:true
     },
     date:{
-        type:Number,
+        type:Date,
         require:true,
         
     }

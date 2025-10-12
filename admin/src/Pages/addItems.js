@@ -64,7 +64,7 @@ const Add = ({ token }) => {
 
   return (
     <>
-      <form onSubmit={onSubmitHandler}>
+      <form onSubmit={onSubmitHandler} >
         <div className="ml-8 mt-8 font-semibold text-[gray] text-xl">
           Upload Image
         </div>
@@ -84,6 +84,7 @@ const Add = ({ token }) => {
               onChange={(e) => setImage2(e.target.files[0])}
               id="image2"
               hidden
+              multiple
             />
             upload
           </label>

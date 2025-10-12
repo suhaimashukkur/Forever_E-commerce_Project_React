@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import "../Components/HomeBanner/HomeBanner.css";
 import { shopContext } from "../Components/Context/ShopContext";
 import { toast } from "react-toastify";
+import axios from 'axios'
+
+
 
 function Delivery() {
   const { getCartAmount, delivery_fee, getCartCount } = useContext(shopContext);
@@ -23,8 +26,48 @@ function Delivery() {
   const subTotal = getCartAmount();
   const shippingFee = subTotal > 0 ? delivery_fee : 0;
   const total = subTotal + shippingFee;
+  const address = {
+    name: `${fname} ${lname}`,
+    street,
+    city,
+    state,
+    zipCode,
+    country,
+    phone,
+    email
+  };
+  const {cartItems}=useContext(shopContext)
+  
+  
 
- 
+  const placeOrder = async () => {
+    const token=localStorage.getItem("token")
+    const userid=localStorage.getItem("userid")
+    const orderData={
+       userId:userid,
+        address:address,
+          items:cartItems,
+           amount:total
+
+    }
+  try {
+    const response = await axios.post(
+      "http://localhost:8000/order/place-order",  // your backend route
+      orderData,                           // data you send to backend
+      { headers: { token } }                // attach token if needed
+    );
+
+    if (response.data.status) {
+      toast.success("Order Placed Successfully!");
+      console.log("Order response:", response.data);
+    } else {
+      toast.error(response.data.message);
+    }
+  } catch (error) {
+    console.error("Error placing order:", error);
+    toast.error("Failed to place order");
+  }
+};
 
   return (
     <section>
@@ -207,7 +250,7 @@ function Delivery() {
             </div>
           </div>
           <Link to={selectPayment?"/orders":"" }  >
-            <button className={`border-solid border-2 h-12 w-60 mt-8 bg-black text-white ml-80 ${selectPayment?"bg-black":"bg-gray-500 cursor-not-allowed"}`} disabled={!selectPayment} >
+            <button className={`border-solid border-2 h-12 w-60 mt-8 bg-black text-white ml-80 ${selectPayment?"bg-black":"bg-gray-500 cursor-not-allowed"}`} disabled={!selectPayment} onClick={()=>placeOrder()} >
               PLACE ORDER
             </button>
           </Link>

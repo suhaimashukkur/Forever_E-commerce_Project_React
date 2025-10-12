@@ -25,3 +25,13 @@ exports.placeOrder = async(req,res) =>{
         res.json({status:false,message:error.message})
     }
 }
+exports.listAllOrders=async(req,res)=>{
+    try{
+    const orders=await Order.find()
+    res.json({ success:true,message: "all orders", orders});
+      } catch (err) {
+        res.status(400).json({ message: "bad request", err });
+      }
+    }
+
+
