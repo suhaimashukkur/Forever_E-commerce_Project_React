@@ -1,9 +1,10 @@
 const express = require('express');
-const { placeOrder, listAllOrders } = require('../Controllers/orderController');
+const { placeOrder, listAllOrders, getUserOrders } = require('../Controllers/orderController');
 
 const orderRouter = express.Router()
 
 orderRouter.post('/place-order',placeOrder)
 orderRouter.get('/list-order',listAllOrders)
+orderRouter.get('/get-userorder/:userId',getUserOrders)
 
 module.exports = orderRouter;

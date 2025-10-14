@@ -8,7 +8,7 @@ import { shopContext } from "../Context/ShopContext";
 
 function Header({ setShowSearchbar }) {
   const { getCartCount,token,setToken} = useContext(shopContext);
-  const[dropDown,setDropDown] =useState('false')
+  const[dropDown,setDropDown] =useState(false)
   const navigate = useNavigate()
 
   // Compute cart count directly from cartItems
