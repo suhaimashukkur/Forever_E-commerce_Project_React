@@ -42,7 +42,7 @@ const Add = ({ token }) => {
       );
       if (response.data.success) {
         toast.success(response.data.message);
-        console.log(formData)
+        console.log(formData);
         setName("");
         setDescription("");
         setPrice("");
@@ -52,7 +52,6 @@ const Add = ({ token }) => {
         setImage2(false);
         setImage3(false);
         setImage4(false);
-        
       } else {
         toast.error(response.data.messsage);
       }
@@ -64,20 +63,29 @@ const Add = ({ token }) => {
 
   return (
     <>
-      <form onSubmit={onSubmitHandler} >
+      <form onSubmit={onSubmitHandler}>
         <div className="ml-8 mt-8 font-semibold text-[gray] text-xl">
           Upload Image
         </div>
         <div className="flex">
-          <label className="border-dotted border-2 h-24 w-24 mt-3 ml-8 text-[gray] pt-6 text-center cursor-pointer ">
+          <label className="border-dotted border-2 h-24 w-24 mt-3 ml-8 text-[gray] flex items-center justify-center cursor-pointer overflow-hidden">
             <input
               type="file"
+              accept="image/*"
               onChange={(e) => setImage1(e.target.files[0])}
-              id="image1"
               hidden
             />
-            upload
+            {image1 ? (
+              <img
+                src={URL.createObjectURL(image1)}
+                alt="preview"
+                className="h-full w-full object-cover"
+              />
+            ) : (
+              <span className="text-sm text-gray-500">Upload</span>
+            )}
           </label>
+
           <label className="border-dotted border-2 h-24 w-24 mt-3 ml-8  text-[gray] pt-6 text-center cursor-pointer">
             <input
               type="file"
@@ -139,9 +147,9 @@ const Add = ({ token }) => {
                 onChange={(e) => setCategory(e.target.value)}
                 value={category}
               >
-                <option  value="" disabled>
-    Select 
-  </option>
+                <option value="" disabled>
+                  Select
+                </option>
                 <option value="Men"> MEN</option>
                 <option value="Women">WOMEN</option>
                 <option value="kids">KIDS</option>
@@ -159,9 +167,9 @@ const Add = ({ token }) => {
                 onChange={(e) => setSubCategory(e.target.value)}
                 value={subCategory}
               >
-                <option  value="" disabled>
-    Select 
-  </option>
+                <option value="" disabled>
+                  Select
+                </option>
                 <option value="Top"> Top Wear</option>
                 <option value="Bottom">Bottom Wear</option>
                 <option value="kids">Winter Wear</option>
@@ -178,7 +186,6 @@ const Add = ({ token }) => {
               className="ml-10 mt-8 border-solid border-2 border-gray-300 w-40 h-11 pl-2"
               type="number"
               name="number"
-              
               min="1"
               max="10000"
               value={price}
@@ -192,7 +199,8 @@ const Add = ({ token }) => {
         <div className="flex">
           <button
             className={`border-solid border-2 w-14 h-10 text-center  items-center  bg-slate-300 ml-8 mt-5  ${
-                  sizes.includes("S") ? "border-gray-700" : ""}`}
+              sizes.includes("S") ? "border-gray-700" : ""
+            }`}
             type="button"
             onClick={() =>
               setSizes((prev) =>
@@ -206,7 +214,8 @@ const Add = ({ token }) => {
           </button>
           <button
             className={`border-solid border-2 w-14 h-10 text-center  items-center  bg-slate-300 ml-8 mt-5  ${
-                  sizes.includes("M") ? "border-gray-700" : ""}`}
+              sizes.includes("M") ? "border-gray-700" : ""
+            }`}
             type="button"
             onClick={() =>
               setSizes((prev) =>
@@ -220,7 +229,8 @@ const Add = ({ token }) => {
           </button>
           <button
             className={`border-solid border-2 w-14 h-10 text-center  items-center  bg-slate-300 ml-8 mt-5  ${
-                  sizes.includes("L") ? "border-gray-700" : ""}`}
+              sizes.includes("L") ? "border-gray-700" : ""
+            }`}
             type="button"
             onClick={() =>
               setSizes((prev) =>
@@ -234,7 +244,8 @@ const Add = ({ token }) => {
           </button>
           <button
             className={`border-solid border-2 w-14 h-10 text-center  items-center  bg-slate-300 ml-8 mt-5  ${
-                  sizes.includes("XL") ? "border-gray-700" : ""}`}
+              sizes.includes("XL") ? "border-gray-700" : ""
+            }`}
             type="button"
             onClick={() =>
               setSizes((prev) =>
@@ -248,7 +259,8 @@ const Add = ({ token }) => {
           </button>
           <button
             className={`border-solid border-2 w-14 h-10 text-center  items-center  bg-slate-300 ml-8 mt-5  ${
-                  sizes.includes("XXL") ? "border-gray-700" : ""}`}
+              sizes.includes("XXL") ? "border-gray-700" : ""
+            }`}
             type="button"
             onClick={() =>
               setSizes((prev) =>
@@ -267,15 +279,17 @@ const Add = ({ token }) => {
             type="checkbox"
             checked={bestSeller}
             id="bestSeller"
-            onChange={() => setBestSeller(prev=>!prev)} 
-            
+            onChange={() => setBestSeller((prev) => !prev)}
           />
           <label className="mt-8 ml-8 font-extrabold text-[gray]">
             {" "}
             Add To Best Seller
           </label>
         </div>
-        <button type="submit" className="bg-black text-[white] ml-8 mt-10 w-24 h-10 ">
+        <button
+          type="submit"
+          className="bg-black text-[white] ml-8 mt-10 w-24 h-10 "
+        >
           ADD
         </button>
       </form>

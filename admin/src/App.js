@@ -21,7 +21,6 @@ function App() {
   }, [token]);
 
   console.log(token);
-
   return (
     <Router>
       <ToastContainer />
@@ -36,7 +35,7 @@ function App() {
               <Routes>
                 <Route path="/add" element={<Add token={token} />} />
                 <Route path="/list" element={<List token={token}/>} />
-                <Route path="/order" element={<Orders />} />
+                <Route path="/order" element={<Orders token={token} />} />
               </Routes>
             </div>
           </div>

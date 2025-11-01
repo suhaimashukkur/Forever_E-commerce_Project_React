@@ -14,6 +14,7 @@ const Login = ({ setToken }) => {
       const response = await axios.post(backend_url + "/user/admin", {
         email,
         password,
+        
       });
       console.log(response)
      

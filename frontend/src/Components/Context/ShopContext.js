@@ -143,6 +143,8 @@ export const shopContext = React.createContext();
 
 export const ShopContextProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
+
+  
   const [cartItems, setCartItems] = useState({});
   const backendUrl = process.env.REACT_APP_BACKEND_URL;
 

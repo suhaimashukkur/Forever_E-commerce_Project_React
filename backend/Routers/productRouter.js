@@ -4,7 +4,7 @@ const {
 
 const upload = require("../Middleware/multer");
 const productRouter = express.Router();
-
+ 
 productRouter.post(
   "/add",
   upload.fields([

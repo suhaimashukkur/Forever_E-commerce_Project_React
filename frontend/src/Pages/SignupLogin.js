@@ -10,6 +10,7 @@ function SignupLogin() {
   const [isLogin, setIsLogin] = useState(true);
   const{token,setToken}=useContext(shopContext)
   const[name,setName] =useState('')
+
   const[email,setEmail] =useState('')
   const[password,setPassword] =useState('')
   const navigate = useNavigate()
@@ -27,6 +28,7 @@ function SignupLogin() {
           localStorage.setItem('token',response.data.token)
           localStorage.setItem('userid',response.data.id)
           toast.success("Registerd Successfully")
+          
         }else{
           toast.error(response.data.message);
           
